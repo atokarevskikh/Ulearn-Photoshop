@@ -42,5 +42,14 @@ namespace MyPhotoshop
                 throw new ArgumentException(string.Format("Wrong channel value {0} (the value must be between 0 and 1", value));
             return value;
         }
+
+        public static double Trim(double value)
+        {
+            if (value < 0)
+                return 0;
+            if (value > 1)
+                return 1;
+            return value;
+        }
     }
 }
