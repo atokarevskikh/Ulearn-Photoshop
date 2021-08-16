@@ -11,29 +11,22 @@ namespace MyPhotoshop
         private double g;
         private double b;
 
-        public Pixel(double r, double g, double b)
-        {
-            R = r;
-            G = g;
-            B = b;
-        }
-
         public double R
         {
             get => r;
-            private set => r = Check(value);
+            set => r = Check(value);
         }
 
         public double G
         {
             get => g;
-            private set => g = Check(value);
+            set => g = Check(value);
         }
 
         public double B
         {
             get => b;
-            private set => b = Check(value);
+            set => b = Check(value);
         }
 
         private double Check(double value)

@@ -7,16 +7,14 @@ namespace MyPhotoshop
     {
         public static Photo Bitmap2Photo(Bitmap bmp)
         {
-            var photo = new Photo();
-            photo.width = bmp.Width;
-            photo.height = bmp.Height;
-            photo.data = new Pixel[bmp.Width, bmp.Height];
+            var photo = new Photo(bmp.Width, bmp.Height);
             for (int x = 0; x < bmp.Width; x++)
                 for (int y = 0; y < bmp.Height; y++)
                 {
                     var color = bmp.GetPixel(x, y);
-                    var pixel = new Pixel((double)color.R / 255, (double)color.G / 255, (double)color.G / 255);
-                    photo.data[x, y] = pixel;
+                    photo.data[x, y].R = (double)color.R / 255;
+                    photo.data[x, y].G = (double)color.G / 255;
+                    photo.data[x, y].B = (double)color.B / 255;
                 }
             return photo;
         }
