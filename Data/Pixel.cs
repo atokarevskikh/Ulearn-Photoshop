@@ -18,6 +18,14 @@ namespace MyPhotoshop
             B = b;
         }
 
+        public static Pixel operator *(Pixel p, double m) => new Pixel(
+                Trim(p.R * m),
+                Trim(p.G * m),
+                Trim(p.B * m)
+            );
+
+        public static Pixel operator *(double m, Pixel p) => p * m;
+
         public double R
         {
             get => r;
