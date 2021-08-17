@@ -23,8 +23,13 @@ namespace MyPhotoshop
             var result = new Photo(original.width, original.height);
             for (int x = 0; x < result.width; x++)
                 for (int y = 0; y < result.height; y++)
-                    result[x, y] = original[x, y] * parameters[0];
+                    result[x, y] = ProcessPixel(original[x, y], parameters);
             return result;
+        }
+
+        public Pixel ProcessPixel(Pixel original, double[] parameters)
+        {
+            return original * parameters[0];
         }
     }
 }
