@@ -5,11 +5,18 @@ using System.Text;
 
 namespace MyPhotoshop
 {
-    public class Pixel
+    public struct Pixel
     {
         private double r;
         private double g;
         private double b;
+
+        public Pixel(double r, double g, double b) : this()
+        {
+            R = r;
+            G = g;
+            B = b;
+        }
 
         public double R
         {
