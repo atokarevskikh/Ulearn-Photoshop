@@ -9,15 +9,15 @@ namespace MyPhotoshop
         : IFilter
         where TParameters : IParameters, new()
     {
+        IParametersHandler<TParameters> handler = new SimpleParametersHandler<TParameters>();
         public ParameterInfo[] GetParameters()
         {
-            return (new TParameters()).GetDescription();
+            return handler.GetDescription();
         }
 
         public Photo Process(Photo original, double[] values)
         {
-            var parameters = new TParameters();
-            parameters.SetValues(values);
+            var parameters = handler.CreateParameters(values);
             return Process(original, parameters);
         }
 
