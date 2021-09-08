@@ -9,7 +9,7 @@ namespace MyPhotoshop
         : IFilter
         where TParameters : IParameters, new()
     {
-        IParametersHandler<TParameters> handler = new StaticParametersHandler<TParameters>();
+        IParametersHandler<TParameters> handler = new ExpressionParametersHandler<TParameters>();
         public ParameterInfo[] GetParameters()
         {
             return handler.GetDescription();
